@@ -3,6 +3,7 @@ const displayTop = document.querySelector("#display-top");
 const numberButton = document.querySelectorAll(".num");
 const operatorButton = document.querySelectorAll(".operator");
 const clear = document.querySelector(".clear");
+const equals = document.querySelector(".equals");
 let isAppending = false; // True if appending numbers, false if starting a new input
 let currentOperation = null; // Stores the selected operation
 let previousNumber = null; // To store the first operand
@@ -18,7 +19,7 @@ function handleNumberClick(number) {
   } else {
     displayBottom.textContent += number; // Append to current input
   }
-  currentNumber = number;
+  currentNumber = displayBottom.textContent;
 }
 
 function handleOperationClick(operation) {
@@ -74,19 +75,19 @@ function divide(a, b) {
 function operate(a, b, operator) {
   switch (operator) {
     case "+":
-      add(a, b);
+      return add(a, b);
       break;
     case "-":
-      subtract(a, b);
+      return subtract(a, b);
       break;
     case "*":
-      multiply(a, b);
+      return multiply(a, b);
       break;
     case "/":
-      divide(a, b);
+      return divide(a, b);
       break;
     default:
-      console.log("Invalid operator");
+      return console.log("Invalid operator");
   }
 }
 
@@ -107,4 +108,11 @@ clear.addEventListener("click", () => {
   currentNumber = null;
   displayBottom.textContent = "0";
   displayTop.textContent = "";
+})
+
+equals.addEventListener("click", () => {
+  const result = operate(Number(previousNumber), Number(currentNumber), currentOperation);
+  displayBottom.textContent = result;
+  displayTop.textContent = "";
+  isAppending = false;
 })
