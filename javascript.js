@@ -7,6 +7,7 @@ const numberButton = document.querySelectorAll(".num");
 const operatorButton = document.querySelectorAll(".operator");
 const clear = document.querySelector(".clear");
 const equals = document.querySelector(".equals");
+const del = document.querySelector(".delete");
 let isAppending = false; // True if appending numbers, false if starting a new input
 let currentOperation = null; // Stores the selected operation
 let previousNumber = null; // To store the first operand
@@ -117,5 +118,21 @@ equals.addEventListener("click", () => {
   const result = operate(Number(previousNumber), Number(currentNumber), currentOperation);
   displayBottom.textContent = result;
   displayTop.textContent = "";
+  isAppending = false;
+})
+
+del.addEventListener("click", () => {
+  arr = displayBottom.textContent.split("");
+  if (arr.length == 1) {
+    if (arr[0] == '0') {
+      return;
+    } else {
+      arr[0] = '0';
+    }
+  } else {
+    arr.pop(arr[-1]);
+  }
+  displayBottom.textContent = arr.join("");
+  currentNumber = displayBottom.textContent;
   isAppending = false;
 })
