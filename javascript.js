@@ -79,19 +79,20 @@ function divide(a, b) {
 function operate(a, b, operator) {
   switch (operator) {
     case "+":
-      return add(a, b);
+      return +add(a, b);
       break;
     case "-":
-      return subtract(a, b);
+      return +subtract(a, b);
       break;
     case "*":
-      return multiply(a, b);
+      return +multiply(a, b);
       break;
-    case "/":
-      return divide(a, b);
+    case "÷":
+      return +divide(a, b);
       break;
     default:
-      return console.log("Invalid operator");
+      displayBottom.textContent = "Err";
+      return;
   }
 }
 
