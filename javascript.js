@@ -1,27 +1,27 @@
 function add (a, b){
-  let a = a;
-  let b = b;
+  let num1 = a;
+  let num2 = b;
   let operator = "+";
-  return a + b;
+  return num1 + num2;
 }
 
 function subtract (a, b){
-  let a = a;
-  let b = b;
+  let num1 = a;
+  let num2 = b;
   let operator = "-";
-  return a - b;
+  return num1 - num2;
 }
 
 function multiply(a, b) {
-  let a = a;
-  let b = b;
+  let num1 = a;
+  let num2 = b;
   let operator = "*";
-  return a * b;
+  return num1 * num2;
 }
 
 function divide(a, b) {
-  let a = a;
-  let b = b;
+  let num1 = a;
+  let num2 = b;
   let operator = "/";
   return a / b;
 }
