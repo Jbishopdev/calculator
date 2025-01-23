@@ -6,6 +6,7 @@ const clear = document.querySelector(".clear");
 let isAppending = false; // True if appending numbers, false if starting a new input
 let currentOperation = null; // Stores the selected operation
 let previousNumber = null; // To store the first operand
+let currentNumber = null;
 
 displayBottom.textContent = "0";
 
@@ -13,9 +14,11 @@ function handleNumberClick(number) {
   if (!isAppending) {
     displayBottom.textContent = number; // Replace screen content for a new input
     isAppending = true; // Start appending again after a reset
+
   } else {
     displayBottom.textContent += number; // Append to current input
   }
+  currentNumber = number;
 }
 
 function handleOperationClick(operation) {
@@ -94,13 +97,14 @@ function populateLowerDisplay(item) {
 
 function populateUpperDisplay(item) {
   let operator = item;
-  displayTop.textContent = displayBottom.textContent + operator;
+  displayTop.textContent = displayBottom.textContent +  " " + operator;
 }
 
 clear.addEventListener("click", () => {
   isAppending = false;
   currentOperation = null;
   previousNumber = null;
+  currentNumber = null;
   displayBottom.textContent = "0";
   displayTop.textContent = "";
 })
