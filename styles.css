@@ -54,12 +54,34 @@ button {
   width: 400px;
 }
 
-#calculator-screen {
+#calculator-display {
+  color: white;
+  text-align: right;
   background-color: rgb(28, 28, 28);
   box-shadow: rgba(0, 0, 0, 0.6) 0px 2px 8px 0px inset;
   margin-top: 25px;
   height: 96px;
-  width: 352px;
+  width: 360px;
+}
+
+#display-top {
+  height: 35%;
+  display: flex;
+  justify-content: end;
+  padding-top: 7px;
+  padding-left: 13px;
+  padding-right: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#display-bottom {
+  height: auto;
+  width: auto;
+  padding: 15px 20px 20px 20px;
+  font-size: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #calculator-buttons {
