@@ -2,9 +2,12 @@ const displayBottom = document.querySelector("#display-bottom");
 const displayTop = document.querySelector("#display-top");
 const numberButton = document.querySelectorAll(".num");
 const operatorButton = document.querySelectorAll(".operator");
-let isAppending = true; // True if appending numbers, false if starting a new input
+const clear = document.querySelector(".clear");
+let isAppending = false; // True if appending numbers, false if starting a new input
 let currentOperation = null; // Stores the selected operation
 let previousNumber = null; // To store the first operand
+
+displayBottom.textContent = "0";
 
 function handleNumberClick(number) {
   if (!isAppending) {
@@ -93,3 +96,11 @@ function populateUpperDisplay(item) {
   let operator = item;
   displayTop.textContent = displayBottom.textContent + operator;
 }
+
+clear.addEventListener("click", () => {
+  isAppending = false;
+  currentOperation = null;
+  previousNumber = null;
+  displayBottom.textContent = "0";
+  displayTop.textContent = "";
+})
