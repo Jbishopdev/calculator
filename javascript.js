@@ -1,3 +1,6 @@
+// ADD divide by zero error
+// add delete button 
+// add functionality for multiple enter pushes
 const displayBottom = document.querySelector("#display-bottom");
 const displayTop = document.querySelector("#display-top");
 const numberButton = document.querySelectorAll(".num");
