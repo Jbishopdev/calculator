@@ -13,6 +13,7 @@ let isAppending = false; // True if appending numbers, false if starting a new i
 let currentOperation = null; // Stores the selected operation
 let previousNumber = null; // To store the first operand
 let currentNumber = null;
+let canDecimal = true;
 
 displayBottom.textContent = "0";
 
@@ -36,6 +37,7 @@ function handleOperationClick(operation) {
 operatorButton.forEach ((button) => {
   button.addEventListener('click', () => { 
     handleOperationClick(button.textContent)
+    canDecimal = true;
   });
   button.addEventListener("click", () => {
     populateUpperDisplay(button.textContent);
@@ -121,6 +123,7 @@ equals.addEventListener("click", () => {
   displayBottom.textContent = result;
   displayTop.textContent = "";
   isAppending = false;
+  canDecimal = true;
 })
 
 del.addEventListener("click", () => {
@@ -140,11 +143,13 @@ del.addEventListener("click", () => {
 })
 
 decimal.addEventListener("click", () => {
-  if (displayBottom.textContent == "0") {
-    isAppending = true;
-    handleNumberClick(".");
+  if (canDecimal == true) { // Ensure no decimal point exists already
+    if (displayBottom.textContent === "0") {
+      isAppending = true;
+      handleNumberClick("."); // Append a decimal point
+    } else { 
+      handleNumberClick("0."); // Append "0." in other cases
+    }
   }
-  else { 
-    handleNumberClick("0.");
-  }
-  })  
+  canDecimal = false;
+});
