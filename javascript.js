@@ -8,6 +8,7 @@ const operatorButton = document.querySelectorAll(".operator");
 const clear = document.querySelector(".clear");
 const equals = document.querySelector(".equals");
 const del = document.querySelector(".delete");
+const decimal = document.querySelector(".decimal");
 let isAppending = false; // True if appending numbers, false if starting a new input
 let currentOperation = null; // Stores the selected operation
 let previousNumber = null; // To store the first operand
@@ -137,3 +138,13 @@ del.addEventListener("click", () => {
   currentNumber = displayBottom.textContent;
   isAppending = false;
 })
+
+decimal.addEventListener("click", () => {
+  if (displayBottom.textContent == "0") {
+    isAppending = true;
+    handleNumberClick(".");
+  }
+  else { 
+    handleNumberClick("0.");
+  }
+  })  
