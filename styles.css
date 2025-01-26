@@ -42,10 +42,11 @@ button {
   inset 0 -3px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   width: 79px;
-  transition: outline 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
 }
+
 button:hover {
-  outline: 1px solid rgb(160, 160, 47);
+  box-shadow: 0 0 0 2px #6409a1; /* Replace color as needed */
 }
 
 button:active {
@@ -53,7 +54,12 @@ button:active {
 }
 
 button.blank {
+  box-shadow: none;
   outline: 0;
+}
+
+button.blank:hover {
+
 }
 
 
