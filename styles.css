@@ -25,6 +25,7 @@ button span {
 }
 
 button {
+  outline: 1px solid #3d3d3d;
   text-align: center;
   color: white;
   line-height: 0;
@@ -41,7 +42,16 @@ button {
   inset 0 -3px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   width: 79px;
+  transition: outline 0.3s ease-in-out;
 }
+button:hover {
+  outline: 1px solid yellow;
+}
+
+button.blank {
+  outline: 0;
+}
+
 
 #calculator-body {
   align-items: center;
